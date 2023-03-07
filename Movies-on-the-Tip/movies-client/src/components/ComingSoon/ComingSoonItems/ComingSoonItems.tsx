@@ -1,37 +1,37 @@
-import { Card, Button } from "react-bootstrap";
+import { Card,Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import IMoviesComing from "../../../models/IMoviesComing";
 
 const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
 
 type Props = {
-    ComingSoon: IMoviesComing;
+    comingSoon: IMoviesComing;
 };
 
-const MovieListItem = ({ ComingSoon }: Props) => {
+const MovieListItem = ({ comingSoon }: Props) => {
   return (
     <Card className="w-100">
-      <Card.Img
-        variant="top"
-        src={`${apiBaseUrl}/${ComingSoon.poster}`}
-        alt={ComingSoon.title}
+      <Image
+        fluid
+        rounded-start
+        src={`${apiBaseUrl}/${comingSoon.poster}`}
+        alt={comingSoon.title}
+        style={{height: '343px'}}
       />
       <Card.Body>
-        <Card.Title className="d-flex align-items-start">
+        <Card.Title className="d-flex justify-content-between">
           <div>
-            <div>{ComingSoon.title}</div>
+            <div>{comingSoon.title}</div>
           </div>
 
           <Link
-            className="btn btn-sm btn-primary"
-            to={`/movies-coming/${ComingSoon.id}`}
+            className="btn btn-sm btn-primary me-2 mb-2 "
+            to={`/movies-coming/${comingSoon.id}`}
           >
             More
           </Link>
         </Card.Title>
-        <Card.Text>
-          <strong>Story</strong>: {ComingSoon.storyline}
-        </Card.Text>
+        
       </Card.Body>
     </Card>
   );
