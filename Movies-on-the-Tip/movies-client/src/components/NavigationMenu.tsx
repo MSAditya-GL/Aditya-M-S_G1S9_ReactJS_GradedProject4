@@ -8,16 +8,16 @@ import {
   faMagnifyingGlass,
 } from "@fortawesome/free-solid-svg-icons";
 import { InputGroup } from "react-bootstrap";
-import {  useState } from "react";
-
+import { useContext } from "react";
+import SearchContext from "../contexts/SearchContext";
 
 const NavigationMenu = () => {
-  const [searchKey, setSearchKey] = useState("");
+  const { search } = useContext(SearchContext);
   return (
     <nav>
       <Navbar bg="light" expand="lg" sticky="top">
         <Container>
-          <Navbar.Brand as={NavLink} to="/">
+          <Navbar.Brand as={NavLink} to="/movies-in-theaters">
             <FontAwesomeIcon icon={faClapperboard} className="me-1" />
             Movies-<span>on the Tip</span>
           </Navbar.Brand>
@@ -25,10 +25,7 @@ const NavigationMenu = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link as={NavLink} to="/movies-coming">
-                Comming soon
-              </Nav.Link>
-              <Nav.Link as={NavLink} to="/movies-in-theaters">
-                Movies in theaters
+                Comming Soon
               </Nav.Link>
               <Nav.Link as={NavLink} to="/top-rated-india">
                 Top rated Indian
@@ -50,8 +47,7 @@ const NavigationMenu = () => {
                 type="search"
                 placeholder="search movie"
                 className="form-control"
-                value={searchKey}
-                onChange={(event) => setSearchKey(event.target.value)}
+                onChange={search}
               />
             </InputGroup>
           </Navbar.Collapse>
@@ -62,4 +58,3 @@ const NavigationMenu = () => {
 };
 
 export default NavigationMenu;
-

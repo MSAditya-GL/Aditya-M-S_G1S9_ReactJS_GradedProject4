@@ -1,7 +1,7 @@
-import ComingSoon from "../components/ComingSoon/ComingSoon"
+import ListOfMovies from "../components/Movies/ListOfMovies"
 
 const ComingSoonPage = () => {
-    return <ComingSoon />;
+    return <ListOfMovies category={"movies-coming"} />;
 }
  
 export default ComingSoonPage;

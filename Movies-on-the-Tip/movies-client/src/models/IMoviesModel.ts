@@ -1,13 +1,13 @@
-export default interface IMoviesComing {
+export default interface IMoviesData {
   id: number,
   title: string,
   year: string,
   genres: string[],
   ratings: number[],
   poster: string,
-  contentRating: number,
+  contentRating: string,
   duration: string,
-  releaseDate: Date,
+  releaseDate: string,
   averageRating: number,
   originalTitle: string,
   storyline: string,
